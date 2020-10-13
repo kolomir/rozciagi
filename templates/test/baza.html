@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+    {% include "rozciagi/head.html" %}
+
+    <body class="d-flex flex-column h-100">
+
+        {% include "rozciagi/header.html" %}
+
+        {% block content %}
+        {% endblock content %}
+
+        {% include "rozciagi/footer.html" %}
+
+        {% include "rozciagi/scripts.html" %}
+
+    </body>
+</html>
+

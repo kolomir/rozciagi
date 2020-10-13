@@ -1,0 +1,22 @@
+{% load static %}
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static 'MDB-Free_4.15.0/js/jquery.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'MDB-Free_4.15.0/js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'MDB-Free_4.15.0/js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'MDB-Free_4.15.0/js/mdb.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'MDB-Free_4.15.0/js/addons/datatables.min.js' %}"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#paginationFull').DataTable({
+                "id": [[ 3, "desc" ]],
+                "pagingType": "full"
+            });
+            $('.dataTables_length').addClass('bs-select');
+        });
+
+    </script>

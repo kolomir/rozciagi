@@ -1,0 +1,72 @@
+{% extends 'rozciagi/base.html' %}
+{% load bootstrap %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="card col-md-6 my-3 mx-auto">
+            <div class="card-body">
+                <form method="post" role="form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            {{ form.nr_zlecenia|bootstrap }}
+                        </div>
+                        <div class="col">
+                            {{ form.indeks_kontaktu|bootstrap }}
+                        </div>
+                        <div class="col">
+                            {{ form.poprawkowe|bootstrap }}
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            {{ form.nr_pozycji|bootstrap }}
+                        </div>
+                        <div class="col">
+                            {{ form.lista|bootstrap }}
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            {{ form.przekroj_przewodu|bootstrap }}
+                        </div>
+                        <div class="col">
+                            {{ form.rozciag|bootstrap }}
+                        </div>
+                        <div class="col">
+                            {{ form.potwierdzenie|bootstrap }}
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            {{ form.narzedzia|bootstrap }}
+                        </div>
+                        <div class="col">
+                            {{ form.narzedzia_rodzaj|bootstrap }}
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            {{ form.nr_pracownika|bootstrap }}
+                        </div>
+                        <div class="col">
+                            {{ form.grupa_robocza|bootstrap }}
+                        </div>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            {{ form.wysokosc|bootstrap }}
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Zapisz <i class="fas fa-save fa-lg"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

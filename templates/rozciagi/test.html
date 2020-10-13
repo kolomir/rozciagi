@@ -1,0 +1,60 @@
+{% extends 'rozciagi/base.html' %}
+{% block content %}
+<div class="container-fluid">
+
+        <h1>Wszystkie wpisy</h1>
+
+
+        <table class="table table-sm table-hover">
+            <thead class="black white-text">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Indeks kontaktu</th>
+                    <th scope="col">Przekroj przewodu</th>
+                    <th scope="col">Rozciag</th>
+                    <th scope="col">nr narzedzia</th>
+                    <th scope="col">Rodzaj narzedzia</th>
+                    <th scope="col">nr zlecenia</th>
+                    <th scope="col">nr pracownika</th>
+                    <th scope="col">uwagi</th>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for wpis in rozciag %}
+                <tr>
+                    <th scope="row">{{ wpis.id }}</th>
+                    <td>{{ wpis.indeks_kontaktu }}</td>
+                    <td>{{ wpis.przekroj_przewodu }}</td>
+                    <td>{{ wpis.rozciag }}</td>
+                    <td>{{ wpis.narzedzia }}</td>
+                    <td>{{ wpis.narzedzia_rodzaj }}</td>
+                    <td>{{ wpis.nr_zlecenia }}</td>
+                    <td>{{ wpis.nr_pracownika }}</td>
+                    <td>{{ wpis.uwagi }}</td>
+                    <td><a href="{% url 'edytuj_wpis' wpis.id %}" class="btn btn-primary btn-sm mr-2">Edytuj</a> <a href="{% url 'usun_wpis' wpis.id %}" class="btn btn-primary btn-sm">Usun</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pg-dark justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link">1</a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endblock content %}

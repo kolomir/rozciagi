@@ -1,0 +1,29 @@
+<!-- Footer -->
+    <footer class="page-footer font-small unique-color-dark pt-4">
+        <!-- Footer Elements -->
+        <div class="container">
+            <div class="row">
+                <div class="col my-4 mx-auto">
+                    {% if user.is_authenticated %}
+                        Witaj <h5>{{user}}</h5>
+                    {% else %}
+                        Nie jesteś zalogowany!
+                    {% endif %}
+                </div>
+                <div class="col my-4">
+                    {% if user.is_authenticated %}
+                        Masz Możliwość edycji lub usuwania wpisów. Możesz rówenież eksportować wybrane dane do pliku.
+                    {% else %}
+                        Nie będąc zalogowanym masz możliwość tylko dodać wpis lub przeglądać dane.
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- Footer Elements -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright: MK | Rimaster
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->

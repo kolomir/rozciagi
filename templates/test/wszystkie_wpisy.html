@@ -1,0 +1,14 @@
+{% extends 'rozciagi/baza.html' %}
+
+{% block content %}
+
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
+        <h1 class="mt-5">Wszystkie wpisy</h1>
+            {% for wpis in rozciag %}
+                {{ wpis.indeks_kontaktu }} || {{ wpis.nr_zlecenia }} || {{ wpis.nr_pracownika }}<br />
+            {% endfor %}
+        </div>
+    </main>
+
+{% endblock content %}
