@@ -23,7 +23,7 @@ def get_author(user):
 
 
 def wszystkie_wpisy(request):
-    rozciag = Rozciagi.objects.all().order_by('id').reverse()
+    rozciag = Rozciagi.objects.all().order_by('-id')[:1000]
 
     context = {
         'rozciag': rozciag
