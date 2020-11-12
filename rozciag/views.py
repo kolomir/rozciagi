@@ -150,7 +150,7 @@ def filtrowanie(request):
         response['Content-Disposition'] = 'attachment; filename="eksport.csv"'
         response.write(u'\ufeff'.encode('utf8'))
 
-        writer = csv.writer(response)
+        writer = csv.writer(response, dialect='excel', delimiter=';')
         writer.writerow(
             [
                 'nr_zlecenia',
