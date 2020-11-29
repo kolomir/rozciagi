@@ -32,6 +32,8 @@ class RozciagiAdmin(admin.ModelAdmin):
         'poprawkowe',
         'narzedzia',
         'grupa_robocza',
+        'wysokosc',
+        'data_serwis',
         'data_dodania',
         'narzedzia_rodzaj',
         'potwierdzenie',
@@ -40,36 +42,20 @@ class RozciagiAdmin(admin.ModelAdmin):
         'komputer'
     )
     list_filter = (
-        'nr_zlecenia',
-        'nr_pozycji',
         'nr_pracownika',
-        'rozciag',
-        'przekroj_przewodu',
         'indeks_kontaktu',
-        'poprawkowe',
-        'narzedzia',
-        'data_dodania',
         'narzedzia_rodzaj',
-        'potwierdzenie',
         'zalogowany_user',
         'komputer_user',
-        'komputer'
     )
     search_fields = (
         'nr_zlecenia',
-        'nr_pozycji',
         'nr_pracownika',
-        'rozciag',
         'przekroj_przewodu',
         'indeks_kontaktu',
-        'poprawkowe',
-        'narzedzia',
         'data_dodania',
         'narzedzia_rodzaj',
-        'potwierdzenie',
         'zalogowany_user',
-        'komputer_user',
-        'komputer'
     )
 
 

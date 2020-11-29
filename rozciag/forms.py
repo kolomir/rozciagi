@@ -24,5 +24,6 @@ class RozciagiForm(ModelForm):
             'narzedzia',
             'narzedzia_rodzaj',
             'potwierdzenie',
-            'wysokosc'
+            'wysokosc',
+            'data_serwis'
         ]

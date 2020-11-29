@@ -53,6 +53,7 @@ class Rozciagi(models.Model):
     narzedzia = models.CharField(max_length=20)#
     grupa_robocza = models.ForeignKey(GrupaRobocza, on_delete=models.CASCADE)#
     wysokosc = models.DecimalField(max_digits=4,decimal_places=2,default=0, blank=True, null=True)#
+    data_serwis = models.DateTimeField('data serwis', blank=True, null=True)
     data_dodania = models.DateTimeField('data dodania',default=datetime.now)
     narzedzia_rodzaj = models.ForeignKey(Narzedzia, on_delete=models.CASCADE)#
     potwierdzenie = models.BooleanField(default=False)

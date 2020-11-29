@@ -7,6 +7,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.http import HttpResponse
 import csv
+from datetime import datetime
 
 def get_author(user):
     if user.is_anonymous:
@@ -34,6 +35,7 @@ def wszystkie_wpisy(request):
 
 def nowy_wpis(request):
     form = RozciagiForm(request.POST or None, request.FILES or None)
+    data_dodania = datetime.now()
 
     if form.is_valid():
         author = get_author(request.user)
@@ -124,6 +126,8 @@ def filtrowanie(request):
     narzedzia_contains_query = request.GET.get('narzedzia_contains')
     data_od = request.GET.get('data_od')
     data_do = request.GET.get('data_do')
+    data_serwis_od = request.GET.get('data_serwis_od')
+    data_serwis_do = request.GET.get('data_serwis_do')
     eksport = request.GET.get('eksport')
 
     if is_valid_queryparam(indeks_kontaktu_contains_query):
@@ -143,6 +147,12 @@ def filtrowanie(request):
 
     if is_valid_queryparam(data_do):
         qs = qs.filter(data_dodania__lt = data_do + ' 23:59:59')
+
+    if is_valid_queryparam(data_serwis_od):
+        qs = qs.filter(data_serwis__gte = data_serwis_od + ' 00:00:00')
+
+    if is_valid_queryparam(data_serwis_do):
+        qs = qs.filter(data_serwis__lt = data_serwis_do + ' 23:59:59')
 
     if eksport == 'on':
 
@@ -166,6 +176,7 @@ def filtrowanie(request):
                 'narzedzia_rodzaj',
                 'nr_pracownika',
                 'grupa_robocza',
+                'data_serwis',
                 'data_dodania',
                 'dział'
             ]
@@ -187,6 +198,7 @@ def filtrowanie(request):
                     obj.narzedzia_rodzaj,
                     obj.nr_pracownika,
                     obj.grupa_robocza,
+                    obj.data_serwis,
                     obj.data_dodania,
                     obj.zalogowany_user.dzial,
                 ]
