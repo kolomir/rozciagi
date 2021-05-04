@@ -52,17 +52,19 @@
                             {{ form.grupa_robocza|bootstrap }}
                         </div>
                     </div>
-                    {% if user.is_authenticated %}
+                    
                     <div class="form-row mb-3">
                         <div class="col">
                             {{ form.wysokosc|bootstrap }}
                         </div>
                         <div class="col">
+                            {% if user.is_authenticated %}
                             <label class="control-label" for="id_data_serwis">Data serwisu</label>
                             <input type="date" id="id_data_serwis" name="data_serwis" class=" form-control">
+                            {% endif %}
                         </div>
                     </div>
-                    {% endif %}
+                    
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Zapisz <i class="fas fa-save fa-lg"></i></button>
                     </div>
